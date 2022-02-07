@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+ use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/', function () {
-   return 'helleo'; 
+   $categories = Category::parents()->orderd()->get();
+
+   dd($categories);
 });
