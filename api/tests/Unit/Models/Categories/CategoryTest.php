@@ -53,7 +53,7 @@ class CategoryTest extends TestCase
             'order' => 1   
         ]);
 
-        $this->assertEquals($anotherCategory->name, $category::orderd()->first()->name);
+        $this->assertEquals($anotherCategory->name, $category::ordered()->first()->name);
 
     }
 }

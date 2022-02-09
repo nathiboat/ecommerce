@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait IsOrderable 
 {
-    public function scopeOrderd(Builder $builder, $direction = 'asc')
+    public function scopeOrdered(Builder $builder, $direction = 'asc')
     {
         $builder->orderBy('order', $direction);
     }
