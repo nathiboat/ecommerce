@@ -1,4 +1,4 @@
-# ecomclient
+# client
 
 ## Build Setup
 

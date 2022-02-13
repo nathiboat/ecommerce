@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ecomclient',
+    title: 'client',
     htmlAttrs: {
       lang: 'en'
     },
@@ -13,6 +13,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: 'https://kit.fontawesome.com/8806f7ba27.js', crossorigin:'anonymous'}
     ]
   },
 
@@ -22,6 +25,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/font-awsome' 
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -29,15 +33,19 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios'
   ],
+
+  axios: {
+    baseUrl: 'http://ecommerce.test:8000/api'
+
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
