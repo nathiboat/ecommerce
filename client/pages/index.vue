@@ -1,5 +1,7 @@
 <template>
-  <p class="text-red-300">Home</p>
+  <div class="container mx-auto">
+    <p class="text-red-300">Home</p>
+  </div>
 </template>
 
 <script>
