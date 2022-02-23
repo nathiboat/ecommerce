@@ -2,14 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Product;
-use App\Models\ProductVariation;
-use App\Models\ProductVariationType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProductVariationFactory extends Factory
+class ProductVariationTypeFactory extends Factory
 {
-    
     /**
      * Define the model's default state.
      *
@@ -18,9 +14,7 @@ class ProductVariationFactory extends Factory
     public function definition()
     {
         return [
-            'product_id' => Product::factory()->create()->id,
             'name' => $this->faker->unique()->name(),
-            'product_variation_type_id' =>ProductVariationType::factory()->create()->id
         ];
     }
 }
