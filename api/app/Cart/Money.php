@@ -16,6 +16,11 @@ class Money
         $this->money = BaseMoney::GBP($value);
     }
 
+    public function amount()
+    {
+        return $this->money->getAmount();
+    }
+
     public function formatted()
     {
         $formatter = new IntlMoneyFormatter(
