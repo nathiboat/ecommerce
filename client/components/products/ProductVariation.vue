@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-500 p-3">
+    <div class="bg-gray-500 p-3 mt-5">
         <label for="">{{ type }}</label>
         <div>
             <div>
@@ -7,8 +7,15 @@
                     <option value="">Please choose</option>
                     <option v-for="variation in variations" 
                     :key="variation.id"
-                    value="">{{ variation.name }}</option>
+                    :value="variation.id">
+                        {{ variation.name }}
+                        <template v-if="variation.price_varies">
+                            ({{ variation.price }})
+                        </template>
 
+                    </option>
+
+                  
                 </select>
             </div>
         </div>
