@@ -14,6 +14,16 @@
                             {{ product.price }}
                         </span>
                     </section>
+
+                    <section class="mt-4">
+                        <form action="">
+                            <ProductsProductVariation v-for="(variations, type) in product.variations"
+                            :type="type"
+                            :key="type"
+                            :variations="variations"
+                            />
+                        </form>
+                    </section>
                 </div>
             </div>
         </div>
