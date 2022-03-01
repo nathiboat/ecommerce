@@ -34,4 +34,8 @@ class ProductVariation extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function stocks(){
+        return $this->hasMany(Stock::class);
+    }
 }
