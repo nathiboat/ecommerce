@@ -10,6 +10,10 @@
                         <h1 class="mt-2">{{ product.name }} </h1>
                         <p v-if="product.description" class="mt-5"> {{ product.description }} </p>
                         <hr  class="my-10">
+
+                        <span class="rounded bg-black p-1 mt-5 text-white" v-if="!product.in_stock">
+                            Out of stock
+                        </span>
                         <span class="rounded bg-gray-200 p-1 mt-5">
                             {{ product.price }}
                         </span>
