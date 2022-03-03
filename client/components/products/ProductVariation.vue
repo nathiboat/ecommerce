@@ -12,12 +12,17 @@
                             :disabled="!variation.in_stock"
                     >
                         {{ variation.name }}
+
                         <template v-if="variation.price_varies">
                             ({{ variation.price }})
                         </template>
 
                         <template v-if="!variation.in_stock">
                             (Out of stock)
+                        </template>
+
+                        <template v-if="variation.stock_count > 0">
+                            {{variation.stock_count}} in stock
                         </template>
 
                     </option>
