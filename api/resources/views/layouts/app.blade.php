@@ -75,7 +75,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="flex items-center justify-center min-h-screen bg-gray-100">
             @yield('content')
         </main>
     </div>
