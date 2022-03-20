@@ -4,6 +4,7 @@
   >
     <div class="container flex flex-wrap justify-between items-center mx-auto">
       <NuxtLink :to="{ name: 'index'}" class="flex"> Cart </NuxtLink>
+      
       <button
         data-collapse-toggle="mobile-menu"
         type="button"
@@ -46,7 +47,39 @@
                 </li>
             </ul>
         </div>
+        <template v-if="$auth.loggedIn">
+          <div class="flex">
+            <p class="mr-3"><a href="">{{ $auth.user.name }}</a></p>
+            <NuxtLink :to="{ name: 'dashbaord'}" class="mx-2"> 
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+              </svg>
+            </NuxtLink>
+            <a href="" @click.prevent="logout">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+            </a>
+          </div>
+        </template> 
+        <template v-if="!$auth.loggedIn">
+          <div class="flex">
+             <NuxtLink :to="{ name: 'login'}" class="mx-2"> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </NuxtLink>
+          <NuxtLink :to="{ name: 'Register'}" class="mx-2"> 
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+            </svg>
+          </NuxtLink>
+          </div>
+        </template>
+        
     </div>
+    
   </nav>
 </template>
 
@@ -58,6 +91,12 @@
       ...mapGetters([
         'categories'
       ])
+    },
+    methods: {
+      async logout () {
+        await this.$auth.logout()
+        this.$router.replace({ name: 'index'})
+      }
     }  
   }
 </script>
