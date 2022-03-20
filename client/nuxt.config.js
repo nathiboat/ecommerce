@@ -53,7 +53,7 @@ export default {
   },
 
   axios: {
-    baseUrl: 'http://ecommerce.test:8000/api',
+    baseUrl: 'http://localhost:8000/api',
     credentials: true
   },
 
